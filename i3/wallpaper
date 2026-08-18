@@ -1,0 +1,2 @@
+# set wallpaper - restores pywal-generated wallpaper on every login
+exec --no-startup-id sleep 1 && wal -R

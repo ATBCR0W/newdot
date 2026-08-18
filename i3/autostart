@@ -1,0 +1,47 @@
+#############################################
+# autostart applications/services on login: #
+#############################################
+
+# make sure it loads gtk configs
+exec_always $HOME/.config/i3/scripts/import-gsettings
+
+# set MEDIA workspace to tabbed layout so kiosk windows stack like browser tabs
+exec_always --no-startup-id i3-msg 'workspace "3:MEDIA"; layout tabbed'
+
+## compositor
+exec_always --no-startup-id picom --config ~/.config/picom/picom.conf
+
+## core services
+
+# polkit auth agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+# dex - execute .desktop autostart entries
+exec --no-startup-id dex --autostart --environment i3
+
+# display setup
+exec --no-startup-id ~/.screenlayout/monitor.sh
+exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --rate 240
+
+# disable screen blanking/power saving entirely
+exec --no-startup-id xset s off -dpms
+
+# notifications
+exec --no-startup-id /usr/bin/dunst
+
+# screen lock on sleep/suspend
+exec --no-startup-id xss-lock -l ~/.config/i3/scripts/lock.sh
+
+#####################################
+# apps that always open on login,   #
+# routed to their workspace via the #
+# assign rules in ~/.config/i3/workspaces #
+#####################################
+
+exec --no-startup-id sleep 2 && zen-browser
+exec --no-startup-id sleep 2 && thunar
+exec --no-startup-id sleep 3 && discord
+exec --no-startup-id sleep 3 && steam -bigpicture
+exec --no-startup-id sleep 3 && virt-manager
+exec --no-startup-id sleep 3 && ~/.config/i3/scripts/wait-obsidian.sh
+exec --no-startup-id sleep 4 && i3-msg 'workspace $ws2'; exec --no-startup-id kitty -e nvim

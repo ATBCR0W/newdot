@@ -1,0 +1,36 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/gengar-logo.txt",
+    "padding": {
+      "top": 1,
+      "right": 2
+    }
+  },
+  "display": {
+    "color": {
+      "keys": "red"
+    },
+    "separator": " → "
+  },
+  "modules": [
+    {
+      "type": "title",
+      "color": {
+        "user": "red",
+        "at": "black",
+        "host": "red"
+      }
+    },
+    "separator",
+    "os",
+    "host",
+    "packages",
+    "shell",
+    "wm",
+    "terminal",
+    "break",
+    "colors"
+  ]
+}

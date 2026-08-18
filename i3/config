@@ -1,0 +1,21 @@
+# exec --no-startup-id ~/set_once.sh
+#######################
+# config starts here: #
+#######################
+
+# set the mod key to the winkey:
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+##########################
+# split config includes: #
+##########################
+
+include ~/.config/i3/appearance
+include ~/.config/i3/workspaces
+include ~/.config/i3/keybinds
+include ~/.config/i3/window-rules
+include ~/.config/i3/wallpaper
+include ~/.config/i3/autostart

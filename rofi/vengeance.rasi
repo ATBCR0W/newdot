@@ -1,0 +1,92 @@
+configuration {
+    modi:               "drun";
+    show-icons:         true;
+    icon-theme:         "Papirus-Dark";
+    drun-display-format: "{name}";
+    display-drun:       "<span foreground='#e53935'>Venge</span><span foreground='#3a1015'>ance</span>";
+    display-window:     "<span foreground='#e53935'>Venge</span><span foreground='#3a1015'>ance</span>";
+    font:               "Departure Mono 13";
+    markup-rows:        true;
+}
+
+* {
+    bg:             #0d0d0f;
+    bg-alt:         #111114;
+    result-bg:      #1a1a1d;
+    selected:       #2a1416;
+    fg:             #c1c5d9;
+    fg-dim:         #6e6a86;
+    red:            #e53935;
+    red-dark:       #7a1f1c;
+    border-color:   #000000;
+    background-color:   transparent;
+    text-color:         @fg;
+}
+
+window {
+    background-color:   @bg;
+    border:             2px;
+    border-color:       @border-color;
+    border-radius:      0px;
+    width:              700px;
+    padding:            20px;
+}
+
+mainbox {
+    background-color:   transparent;
+    children:           [ inputbar, listview ];
+    spacing:            10px;
+}
+
+inputbar {
+    background-color:   @bg-alt;
+    border-radius:      0px;
+    padding:            10px 14px;
+    children:           [ prompt, entry ];
+}
+
+prompt {
+    markup:             true;
+    background-color:   transparent;
+    padding:            0px 8px 0px 0px;
+}
+
+entry {
+    background-color:   transparent;
+    text-color:         @fg;
+    placeholder:        "search...";
+    placeholder-color:  @fg-dim;
+}
+
+listview {
+    background-color:   transparent;
+    lines:              6;
+    columns:            1;
+    spacing:            2px;
+    scrollbar:          false;
+}
+
+element {
+    background-color:   @result-bg;
+    text-color:         @red;
+    border-radius:      0px;
+    padding:            8px 12px;
+    spacing:            10px;
+    children:           [ element-icon, element-text ];
+}
+
+element selected {
+    background-color:   @selected;
+    text-color:         @red-dark;
+}
+
+element-icon {
+    size:               24px;
+    background-color:   transparent;
+}
+
+element-text {
+    background-color:   transparent;
+    text-color:         inherit;
+    vertical-align:     0.5;
+}

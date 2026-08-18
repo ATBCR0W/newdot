@@ -1,0 +1,23 @@
+font pango: Departure Mono 10
+
+new_window pixel 0
+gaps inner 0
+gaps outer 0
+
+######################################
+# color settings for bar and windows #
+######################################
+
+set $bg    #0a0a0c
+set $fg    #dbd9d6
+set $plum  #6b5b7a
+set $darkgrey #1c1b1f
+set $grey  #6e6b72
+set $urgentred #e53935
+
+# define colors for windows:
+#class                      border      bground     text        indicator   child_border
+client.focused              $plum       $bg         $fg         $plum       $plum
+client.unfocused            $bg         $bg         $grey       $darkgrey   $darkgrey
+client.focused_inactive     $bg         $bg         $grey       $darkgrey   $darkgrey
+client.urgent                $urgentred  $urgentred  $fg         $urgentred  $urgentred
